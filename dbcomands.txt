@@ -1,0 +1,26 @@
+db.create_all()
+
+from flaskk import Recipe, User
+user_1 = User(name="Daniel",password="password")
+db.session.add(user_1) 
+db.session.commit()
+
+Consolas, 'Courier New', monospace
+
+
+from Cooking import db
+from Cooking.models import Recipe, Ingredient, Step, User, Role, UserRoles
+
+cd OneDrive\Desktop\projects\cooking
+
+
+Admin_role = Role(name='Admin')
+db.session.commit()
+
+
+Create 'user007' user with 'secret' and 'agent' roles
+user1 = User(
+    username='user007', email='admin@example.com', active=True,
+    password=user_manager.hash_password('Password1'))
+user1.roles = [admin_role,]
+db.session.commit()

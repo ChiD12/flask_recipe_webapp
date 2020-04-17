@@ -1,0 +1,27 @@
+{% extends "recipe.html" %}
+
+{% block img %}<img class ="img" src="{{ recipe.image }}" >{% endblock %}
+
+{% block name %}{{recipe.name.title()}}{% endblock %}
+{% block date %}{{recipe.date}}{% endblock %}
+
+{% block ingedients %}
+    {% for ing in recipe.ingredients %}
+        
+        <li class="list-group-item">{{ing}}</li>
+        
+    {% endfor %}
+{% endblock %}
+
+
+{% block steps %}
+    {% for step in recipe.steps %}
+        
+        <li class="list-group-item">{{step}}</li>
+
+    {% endfor %}
+{% endblock %}
+
+{% block link %}
+   
+{% endblock %}

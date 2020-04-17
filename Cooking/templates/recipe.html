@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block links %}
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='css/recipe.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='css/entry.css') }}">
+{% endblock %}
+
+{% block flash %}
+    <div class = "flash">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message}}
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+{% endblock %}
+
+{% block other %}
+<div class="bodydiv">
+    <div class ="imgdiv">
+        {% block img %}<img class ="img" src="../static/img/shrimp.jpg" >{% endblock %}
+    </div>
+
+    <div class = "rightdiv">
+        <div class = "scroll overflow-auto">
+            <h1> {% block name %}{% endblock %} </h1>
+            <p>Date posted: {% block date %}{% endblock %}</p>
+
+            <div class ="list">
+                <h4>Ingredients</h4>
+                <ol class="list-group list-group-flush">
+                    {% block ingedients %}
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Morbi leo risus</li>
+                    <li class="list-group-item">Porta ac consectetur ac</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Morbi leo risus</li>
+                    <li class="list-group-item">Porta ac consectetur ac</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                    {% endblock %}
+                </ol>
+            </div>
+
+            <div class ="list">
+                <h4>Steps</h4>
+                <ul class="list-group list-group-flush">
+                    {% block steps %}
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Morbi leo risus</li>
+                    <li class="list-group-item">Porta ac consectetur ac</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                    {% endblock %}
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

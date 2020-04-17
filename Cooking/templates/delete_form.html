@@ -1,0 +1,18 @@
+{% extends "form.html" %}
+
+{% block form %}
+
+    <div class="content">
+        <form class="form" method="POST" action="">
+            <legend class="border-bottom mb-4">Search For Recipe You Wish To Delete</legend>
+            <div class="form-group">
+            </div>
+
+            <form class="form-inline form" method="POST" action="/delete" name="search">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="delete">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+                         
+        </form>
+    </div>
+{% endblock %}

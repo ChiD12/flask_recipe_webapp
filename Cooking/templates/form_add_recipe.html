@@ -1,0 +1,97 @@
+{% extends "form.html" %}
+
+{% block form %}
+
+    <div class="content">
+        <form class="form" method="POST" action="">
+            {{ form.hidden_tag() }}
+            <legend class="border-bottom mb-4">Post Recipe</legend>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Must Be Unique</div>
+                    </div>
+
+                    <!-- if there are errors from form validation show those, otherwise show form normally -->
+                    {% if form.name.errors %}
+                        {{ form.name(class="form-control is-invalid" ,placeholder="Recipe Name") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% elif unique == False %}
+
+                        {{ form.name(class="form-control is-invalid" ,placeholder="Recipe Name") }}
+                        <div class="invalid-feedback">
+                            <p>This Recipe name is already in use</p>
+                        </div>
+
+                    {% else %}
+                        {{ form.name(class="form-control" ,placeholder="Recipe Name") }}
+                    {% endif %}
+
+                </div>
+            </div>
+            <div class="form-group">
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">@</div>
+                    </div>
+                    {{ form.image(class="form-control" ,placeholder="Image URL") }}
+                </div>
+            </div>
+            
+            <div class="ingredientDiv">
+                <div class="input-group mb-3 anotherIng">
+                     
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-danger removeIng" type="button" >X</button>
+                    </div>
+
+                    <!-- if there are errors from form validation show those, otherwise show form normally -->
+                    {% if form.ingredients.errors %}
+                        {{ form.ingredients(class="form-control is-invalid" ,placeholder="Recipe Name") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.ingredients.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.ingredients(class="form-control" ,placeholder="Ingredients") }}
+                    {% endif %}
+
+                </div>
+            </div>
+            <button type="button" class="btn btn-outline-success btn-sm moreIng">More Ingredients</button>
+
+            <div class="stepDiv">
+                <div class="input-group mb-3 anotherStep">
+                    
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-danger removeStep" type="button" >X</button>
+                    </div>
+
+                   <!-- if there are errors from form validation show those, otherwise show form normally -->
+                    {% if form.steps.errors %}
+                        {{ form.steps(class="form-control is-invalid" ,placeholder="Recipe Name") }}
+                        <div class="invalid-feedback">
+                        {% for error in form.steps.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.steps(class="form-control" ,placeholder="Steps") }}
+                    {% endif %}
+                    
+                </div>
+            </div>
+            {{ form.submit(class="btn btn-outline-info") }}
+            <button type="button" class="btn btn-outline-success btn-sm moreStep">More Steps</button>
+        </form>
+    </div>
+    <script src="{{url_for('static', filename='javascript/add_recipe.js')}}"></script>
+
+{% endblock %}

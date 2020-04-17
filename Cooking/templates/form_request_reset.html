@@ -1,0 +1,40 @@
+{% extends "form.html" %}
+
+{% block form %}
+
+
+    <div class="content">
+        <form class="form" method="POST" action="">
+            {{ form.hidden_tag() }}
+            <legend class="border-bottom mb-4">Request Password Reset</legend>
+            <div class="form-group">
+                <!-- <label for="exampleInputEmail1">Recipe Name</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Must Be Unique</div>
+                    </div>
+                    <!-- if there are errors returned show invalid div with the errors, otherwise show form normally -->
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control is-invalid" ,placeholder="email") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control" ,placeholder="email") }}
+                    {% endif %}
+                </div>
+            </div>
+            
+
+            <div class= "form-group mt-3">
+                {{ form.submit(class="btn btn-outline-info") }}
+            
+            </div>
+        </form>
+    </div>
+{% endblock %}

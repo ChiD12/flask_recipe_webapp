@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+
+{% block other %}
+<div class="container">
+  <div class="row">
+    
+      <!-- for every recipe returned in the search, display each one as a card with name, image, and button to delete recipe -->
+      {% for rec in recipes %}
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+          <img src="{{ rec.image }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{rec.name.title()}}</h5>
+            <p class="card-text"></p>
+            
+                <!-- <a href="/recipe/{{rec.name}}" class="btn btn-primary">Go To Recipe</a> -->
+                <form action="/delete" method="post">
+                  <!-- <input type="submit" name="delete" value="{{rec.name}}" /> -->
+                  <button name="deletethis" value="{{rec.name}}" class="btn btn-primary">Delete {{rec.name}}</button>
+                </form>
+          </div>
+        </div>
+      </div>
+      {%  endfor %}
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col"># of Ingredients</th>
+            <th scope="col"># of Steps</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for rec in recipes %}
+            <tr>
+              <th scope="row">{{rec.id}}</th>
+              <td><a href="/recipe/{{rec.name}}">{{rec.name}}</a></td>
+              <td>{{rec.ingredients|length}}</td>
+              <td>{{rec.steps|length}}</td>
+              <td><form action="/delete" method="post">
+                <!-- <input type="submit" name="delete" value="{{rec.name}}" /> -->
+                <button name="deletethis" value="{{rec.name}}" class="btn btn-primary">Delete {{rec.name}}</button>
+              </form></td>
+            </tr>
+          {%  endfor %}
+          
+        </tbody>
+      </table>
+
+      
+    
+    
+  </div>
+
+  
+</div>
+{% endblock %}

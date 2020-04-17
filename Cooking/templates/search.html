@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block other %}
+<h1 style="text-align: center; width: 100%;">Search Results</h1>
+
+<div class="container">
+  <div class="row">
+  
+      {% for rec in recipes %}
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+          <img src="{{ rec.image }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{rec.name.title()}}</h5>
+            <p class="card-text"></p>
+            <a href="/recipe/{{rec.name}}" class="btn btn-primary">Go To Recipe</a>
+          </div>
+        </div>
+      </div>
+      {%  endfor %}
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+.bodydiv{
+    display: flex;
+    flex-direction: row;
+}
+.imgdiv{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    padding: auto 0;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    border: 0.25px solid black;
+}
+.img{
+    max-width: 80%;
+    height: 500px;
+}
+.rightdiv{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    width: 50%;
+    border: 0.25px solid black;
+    border-left: none;
+}
+.scroll{
+    height: 500px;
+}
+.list{
+    margin-top: 40px;
+}

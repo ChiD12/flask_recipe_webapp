@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block links %}
+<link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='css/home.css') }}">
+{% endblock %}
+
+{% block other %}
+<!-- display any flash messages -->
+<div class = "flash">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+          {{ message}}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+</div>
+<div class="container">
+  <div class="row">
+    
+      <!-- for every recipe returned create a card with associated image, name, and link to page -->
+      {% for rec in recipes %}
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+          <img src="{{ rec.image }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{rec.name.title()}}</h5>
+            <p class="card-text"></p>
+            <a href="/recipe/{{rec.name}}" class="btn btn-primary">Go To Recipe</a>
+          </div>
+        </div>
+      </div>
+      {%  endfor %}
+
+      
+
+    </div>
+  </div>
+</div>
+{% endblock %}

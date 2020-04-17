@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block links %}
+<link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='css/entry.css') }}">
+{% endblock %}
+
+{% block other %}
+
+<div class = "flash">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">
+            {{ message}}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+
+    {% block form %}
+    {% endblock %}
+  {% endblock %}

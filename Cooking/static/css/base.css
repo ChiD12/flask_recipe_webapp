@@ -1,0 +1,25 @@
+body{
+    background: white;
+    font-family: 'Open Sans Condensed';
+}
+.toptext{
+    padding-left: 25px;
+}
+
+.topimg{
+    color: white;
+    background-image: url("../img/top2.jpg");
+    height : 400px;
+    width: 100%;
+}
+.container{
+    margin-top: 50px;
+}
+.card{
+    margin-bottom: 30px;
+}
+.custom{
+    text-align: right;
+    float: right;
+    flex-direction: row-reverse;
+}
