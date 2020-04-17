@@ -3,9 +3,7 @@ Instructions to Run
 2. run: pip install -r requirements.txt
 3. run: python run.py
 
-Admin Account 
-Email: daniel.chid@gmail.com
-password: password1
+
 
 Notes on features
 
